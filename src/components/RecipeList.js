@@ -17,7 +17,7 @@ function RecipeList(props) {
       listItems.push(<RecipeItem key={i} food={food[i].recipe.label} />);
     }
   } else {
-    listItems.push(<RecipeItem food={'No Results Found.'} />);
+    listItems.push(<RecipeItem key={'empty'} food={'No Results Found.'} />);
   }
 
   return <List>{listItems}</List>;
