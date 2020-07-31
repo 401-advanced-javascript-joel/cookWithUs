@@ -3,25 +3,23 @@ import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../store/storeAction';
 function RecipeList(props) {
+  const { get, food } = props;
+
   // const [recipes , setRecipes] = useState([]);
-  const { food, get } = props;
 
   useEffect(() => {
     get();
   }, [get]);
 
-  console.log('food', food);
+  let listItems = null;
+  console.log('foooooood', food[0]);
+  for (let i = 0; i < food.length; i++) {
+    listItems += <ListItem key={i}>{food[i].digest}</ListItem>;
+  }
+
   return (
     <List>
-      <ListItem>
-        <Text>Joel </Text>
-      </ListItem>
-      <ListItem>
-        <Text>Blandine</Text>
-      </ListItem>
-      <ListItem>
-        <Text>Henok</Text>
-      </ListItem>
+      <Text>{listItems}</Text>
     </List>
   );
 }
@@ -29,7 +27,7 @@ const mapToStateProps = (state) => {
   return { food: state.listFood.allFood };
 };
 const mapDispatchProps = (dispatch) => {
-  return { get: () => dispatch(actions.getRecipe()) };
+  return { get: (data) => dispatch(actions.getRecipe(data)) };
 };
 
 export default connect(mapToStateProps, mapDispatchProps)(RecipeList);
