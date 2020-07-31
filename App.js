@@ -1,10 +1,13 @@
 import React from 'react';
 import { AppLoading } from 'expo';
-import { Container, Text } from 'native-base';
+import { Container, Text, Content } from 'native-base';
 import * as Font from 'expo-font';
 import { Ionicons } from '@expo/vector-icons';
 import HeaderBar from './src/components/HeaderBar';
-// import SearchBar from './src/components/SearchBar';
+import SearchBar from './src/components/SearchBar';
+import RecipeList from './src/components/RecipeList';
+import store from './src/store';
+import { Provider } from 'react-redux';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -29,10 +32,15 @@ export default class App extends React.Component {
     }
 
     return (
-      <Container>
-        <HeaderBar />
-        <Text>Open up App.js to start working on your app!</Text>
-      </Container>
+      <Provider store={store}>
+        <Container>
+          <HeaderBar />
+          <Content>
+            <SearchBar />
+            <RecipeList />
+          </Content>
+        </Container>
+      </Provider>
     );
   }
 }

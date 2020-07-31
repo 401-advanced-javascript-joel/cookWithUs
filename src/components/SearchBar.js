@@ -1,29 +1,21 @@
 import React, { Component } from 'react';
-import {
-  Container,
-  Header,
-  Content,
-  Item,
-  Input,
-  Button,
-  Icon,
-  Text,
-} from 'native-base';
+import { Col, Row, Grid } from 'react-native-easy-grid';
+import { Container, Content, Item, Input, Button, Text } from 'native-base';
 export default class SearchBar extends Component {
   render() {
     return (
-      <Container>
-        <Header />
-        <Content>
-          <Item rounded>
-            <Input placeholder='Rounded Textbox' />
-          </Item>
-        </Content>
-        <Button iconRight light>
-          <Text>Next</Text>
-          <Icon name='arrow-forward' />
-        </Button>
-      </Container>
+      <>
+        <Item rounded>
+          <Input placeholder='chicken...' />
+          <Button iconRight light>
+            <Text>Search</Text>
+          </Button>
+        </Item>
+        <Grid>
+          <Col style={{ backgroundColor: '#635DB7', height: 200 }}></Col>
+          <Col style={{ backgroundColor: '#00CE9F', height: 200 }}></Col>
+        </Grid>
+      </>
     );
   }
 }
