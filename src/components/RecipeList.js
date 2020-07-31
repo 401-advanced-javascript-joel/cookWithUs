@@ -15,7 +15,7 @@ function RecipeList(props) {
 
   let listItems = [];
   for (let i = 0; i < food.length; i++) {
-    listItems.push(<RecipeItem food={food[i].recipe.label} />);
+    listItems.push(<RecipeItem key={i} food={food[i].recipe.label} />);
   }
 
   return <List>{listItems}</List>;

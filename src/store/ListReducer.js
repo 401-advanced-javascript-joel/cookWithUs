@@ -1,5 +1,6 @@
 const initState = {
   allFood: [],
+  searchTerm: '',
 };
 
 const reducer = (state = initState, action) => {
@@ -8,6 +9,9 @@ const reducer = (state = initState, action) => {
   switch (action.type) {
     case 'UPDATE_LIST':
       newState.allFood = action.payload;
+      break;
+    case 'UPDATE_FORM':
+      newState.searchTerm = action.payload;
       break;
     default:
       break;
