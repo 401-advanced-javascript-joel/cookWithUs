@@ -15,16 +15,12 @@ function SearchBar(props) {
     <>
       <Form>
         <Item rounded>
-          <Input onChange={handleChange} />
+          <Input placeHolder='chicken...' onChange={handleChange} />
           <Button iconRight light onPress={() => get(term)}>
             <Text>Search</Text>
           </Button>
         </Item>
       </Form>
-      <Grid>
-        <Col style={{ backgroundColor: '#635DB7', height: 200 }}></Col>
-        <Col style={{ backgroundColor: '#00CE9F', height: 200 }}></Col>
-      </Grid>
     </>
   );
 }
