@@ -2,6 +2,8 @@ import { List, ListItem, Text } from 'native-base';
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../store/storeAction';
+import RecipeItem from './RecipeItem';
+
 function RecipeList(props) {
   const { get, food } = props;
 
@@ -11,17 +13,12 @@ function RecipeList(props) {
     get();
   }, [get]);
 
-  let listItems = null;
-  console.log('foooooood', food[0]);
+  let listItems = [];
   for (let i = 0; i < food.length; i++) {
-    listItems += <ListItem key={i}>{food[i].digest}</ListItem>;
+    listItems.push(<RecipeItem food={food[i].recipe.label} />);
   }
 
-  return (
-    <List>
-      <Text>{listItems}</Text>
-    </List>
-  );
+  return <List>{listItems}</List>;
 }
 const mapToStateProps = (state) => {
   return { food: state.listFood.allFood };
