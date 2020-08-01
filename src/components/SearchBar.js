@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Col, Grid } from 'react-native-easy-grid';
 import { Form, Item, Input, Button, Text } from 'native-base';
 import * as actions from '../store/storeAction';
 
@@ -14,7 +13,7 @@ function SearchBar(props) {
   return (
     <>
       <Form>
-        <Item rounded>
+        <Item>
           <Input placeHolder='chicken...' onChange={handleChange} />
           <Button iconRight light onPress={() => get(term)}>
             <Text>Search</Text>

@@ -1,12 +1,13 @@
 import React from 'react';
-import { ListItem, Text } from 'native-base';
+import { ListItem } from 'native-base';
+import Anchor from './Anchor';
 
 function RecipeItem(props) {
-  const { food } = props;
+  const { food, url } = props;
 
   return (
     <ListItem>
-      <Text>{food}</Text>
+      <Anchor href={url}>{food}</Anchor>
     </ListItem>
   );
 }
