@@ -1,5 +1,5 @@
 import { List } from 'native-base';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../store/storeAction';
 import RecipeItem from './RecipeItem';
@@ -14,7 +14,13 @@ function RecipeList(props) {
   let listItems = [];
   if (food.length !== 0) {
     for (let i = 0; i < food.length; i++) {
-      listItems.push(<RecipeItem key={i} food={food[i].recipe.label} />);
+      listItems.push(
+        <RecipeItem
+          key={i}
+          food={food[i].recipe.label}
+          url={food[i].recipe.url}
+        />,
+      );
     }
   } else {
     listItems.push(<RecipeItem key={'empty'} food={'No Results Found.'} />);
